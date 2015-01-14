@@ -1,0 +1,5 @@
+C:\Proyectos\AriGesInv\AriGesInvTest\bin\AriGesInvTest.dll
+C:\Proyectos\AriGesInv\AriGesInvTest\bin\AriGesInvTest.pdb
+C:\Proyectos\AriGesInv\AriGesInvTest\obj\Debug\AriGesInvTest.dll
+C:\Proyectos\AriGesInv\AriGesInvTest\obj\Debug\AriGesInvTest.pdb
+C:\Proyectos\AriGesInv\AriGesInvTest\obj\Debug\AriGesInvTest.csprojResolveAssemblyReference.cache

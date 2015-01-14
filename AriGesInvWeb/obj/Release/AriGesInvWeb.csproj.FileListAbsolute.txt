@@ -1,0 +1,4 @@
+C:\Proyectos\AriGesInv\AriGesInvWeb\bin\AriGesInvWeb.dll
+C:\Proyectos\AriGesInv\AriGesInvWeb\bin\AriGesInvWeb.pdb
+C:\Proyectos\AriGesInv\AriGesInvWeb\obj\Release\AriGesInvWeb.dll
+C:\Proyectos\AriGesInv\AriGesInvWeb\obj\Release\AriGesInvWeb.pdb

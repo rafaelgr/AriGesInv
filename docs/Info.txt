@@ -1,0 +1,66 @@
+TEXT1 ->  Codartic      codigo del articulo                    
+    Codalmac ->  Almacen
+    Label5  ->  Cantidad que dice la BD que hay
+   TEXT2  ->  Cantidad que dice el usuario que hay
+   ContadorActualizaciones -> Simplemente era una variable para saber cuantos artículos ha inventariado hoy con pistola. No es importante y podría llevar un 1 fijo
+ 
+                                                                              'HABIAN                     -  HAY
+        Diferencia = ImporteFormateado(Label5.Caption) - ImporteFormateado(Text2.Text)
+ 
+ 
+----------------------------------------------------------------------
+ 
+    ‘Insertamos en la la tabla de inventarios realizados.
+    ‘No debería dar clave duplicada pero por si la moscas meto el ignore.
+   ‘Otra opción es controlar el error
+       SQL = "INSERT IGNORE INTO shinve(codartic,codalmac,fechainv,horainve,existenc) "    '** IGNORE PARA QUE NO DER ERROR DE DUPLICADOS
+        SQL = SQL & " SELECT codartic,codalmac,fechainv,horainve,stockinv FROM salmac "
+        SQL = SQL & " WHERE codartic=" & DBSet(Text1.Text, "T") & " AND codalmac=" & codalmac
+        Conn.Execute SQL
+       
+        
+        
+----------------------------------------------------------------------
+        Linea  de movimientos de artículos
+ 
+        SQL = "INSERT INTO smoval (codartic, codalmac, fechamov, horamovi, tipomovi, detamovi, cantidad, impormov, "
+        SQL = SQL & " codigope, letraser, document, numlinea) "
+        SQL = SQL & " VALUES (" & DBSet(Text1.Text, "T") & ", " & codalmac & ", '" & Format(Now, "yyyy-mm-dd") & "', '"
+        SQL = SQL & Format(Now, "yyyy-mm-dd hh:mm:ss") & "', "
+       
+        If Diferencia > 0 Then
+            SQL = SQL & "0"
+        Else
+            SQL = SQL & "1"   'entrada =1
+        End If
+           
+        SQL = SQL & ",'DFI', " & DBSet(Abs(Diferencia), "N") & ", "
+        'Importe
+        Diferencia = Diferencia * PrecioCoste
+        SQL = SQL & DBSet(Diferencia, "N") & ", "
+        'Trabajador conectado.
+         SQL = SQL & trabajadorconectado & ",'',"
+        '
+        SQL = SQL & "'INVLECTOR'," & ContadorActualizaciones & ")"
+        Conn.Execute SQL
+       
+        ContadorActualizaciones = ContadorActualizaciones + 1
+       
+ 
+----------------------------------------------------------------------
+ 
+        'Actualizamos la Tabla: salmac
+        '           salmac.canstock := existencia Real
+        '           salmac.statusin := false (desbloqueamos los articulos )
+        '---------------------------------------
+        Diferencia = ImporteFormateado(Text2.Text)
+        SQL = "UPDATE salmac SET canstock=" & DBSet(Diferencia, "N") & ", statusin=0, "
+        'stockinv fechainv horainve
+        SQL = SQL & "stockinv=" & DBSet(Diferencia, "N") & ", fechainv= '" & Format(Now, "yyyy-mm-dd")
+        SQL = SQL & "', horainve='" & Format(Now, "yyyy-mm-dd hh:mm:ss") & "'"
+        SQL = SQL & " WHERE codartic=" & DBSet(Text1.Text, "T") & " AND codalmac=" & codalmac
+        Conn.Execute SQL
+ 
+ 
+ 
+ 

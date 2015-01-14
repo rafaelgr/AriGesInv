@@ -272,8 +272,21 @@
     <Content Include="Content\jquery.mobile.structure-1.4.5.min.css" />
     <Content Include="Content\jquery.mobile.theme-1.4.5.css" />
     <Content Include="Content\jquery.mobile.theme-1.4.5.min.css" />
-    <Content Include="login.html" />
+    <Content Include="img\0c469f57.jpeg" />
+    <Content Include="img\183479_105257622886833_3347041_n.jpg" />
+    <Content Include="img\DeathtoStock_NotStock.jpg" />
+    <Content Include="img\DeathtoStock_NotStock10.jpg" />
+    <Content Include="img\DeathtoStock_NotStock2.jpg" />
+    <Content Include="img\DeathtoStock_NotStock3.jpg" />
+    <Content Include="img\DeathtoStock_NotStock4.jpg" />
+    <Content Include="img\DeathtoStock_NotStock5.jpg" />
+    <Content Include="img\DeathtoStock_NotStock6.jpg" />
+    <Content Include="img\DeathtoStock_NotStock7.jpg" />
+    <Content Include="img\DeathtoStock_NotStock8.jpg" />
+    <Content Include="img\DeathtoStock_NotStock9.jpg" />
+    <Content Include="img\rgr_draw.jpg" />
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\AriGesInv.pubxml" />
     <None Include="Scripts\jquery-1.8.3.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.3.js" />
     <Content Include="Scripts\jquery-1.8.3.min.js" />
@@ -293,6 +306,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
