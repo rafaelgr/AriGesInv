@@ -57,6 +57,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="application.js" />
     <Content Include="Content\images\ajax-loader.gif" />
     <Content Include="Content\images\icons-png\action-black.png" />
     <Content Include="Content\images\icons-png\action-white.png" />
@@ -286,15 +287,27 @@
     <Content Include="img\DeathtoStock_NotStock8.jpg" />
     <Content Include="img\DeathtoStock_NotStock9.jpg" />
     <Content Include="img\rgr_draw.jpg" />
+    <Content Include="notekeeper.html" />
+    <Content Include="people.json" />
+    <Content Include="packages.config" />
     <None Include="Scripts\jquery-1.8.3.intellisense.js" />
     <Content Include="index.html" />
+    <None Include="Scripts\jquery-1.4.4-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.4.4.js" />
+    <Content Include="Scripts\jquery-1.4.4.min.js" />
     <Content Include="Scripts\jquery-1.8.3.js" />
     <Content Include="Scripts\jquery-1.8.3.min.js" />
     <Content Include="Scripts\jquery.mobile-1.4.5.js" />
     <Content Include="Scripts\jquery.mobile-1.4.5.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="test1.html" />
     <Content Include="test2.html" />
     <Content Include="test3.html" />
+    <Content Include="test5.html" />
+    <Content Include="test6.html" />
+    <Content Include="test_dyn.html" />
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery.mobile-1.4.5.min.map" />
   </ItemGroup>

@@ -39,6 +39,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="MySql.Data, Version=6.8.3.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -272,6 +273,7 @@
     <Content Include="Content\jquery.mobile.structure-1.4.5.min.css" />
     <Content Include="Content\jquery.mobile.theme-1.4.5.css" />
     <Content Include="Content\jquery.mobile.theme-1.4.5.min.css" />
+    <Content Include="css\ariges-inv-web.css" />
     <Content Include="img\0c469f57.jpeg" />
     <Content Include="img\183479_105257622886833_3347041_n.jpg" />
     <Content Include="img\DeathtoStock_NotStock.jpg" />
@@ -285,6 +287,12 @@
     <Content Include="img\DeathtoStock_NotStock8.jpg" />
     <Content Include="img\DeathtoStock_NotStock9.jpg" />
     <Content Include="img\rgr_draw.jpg" />
+    <Content Include="inventario.html" />
+    <Content Include="js\ariges-inv-web.js" />
+    <Content Include="js\inventario.js" />
+    <Content Include="js\login.js" />
+    <Content Include="login.html" />
+    <Content Include="LoginApi.aspx" />
     <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\AriGesInv.pubxml" />
     <None Include="Scripts\jquery-1.8.3.intellisense.js" />
@@ -292,10 +300,20 @@
     <Content Include="Scripts\jquery-1.8.3.min.js" />
     <Content Include="Scripts\jquery.mobile-1.4.5.js" />
     <Content Include="Scripts\jquery.mobile-1.4.5.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Web.config" />
     <Content Include="Scripts\jquery.mobile-1.4.5.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="LoginApi.aspx.cs">
+      <DependentUpon>LoginApi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginApi.aspx.designer.cs">
+      <DependentUpon>LoginApi.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -306,7 +324,12 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\AriGesDb\AriGesDb.csproj">
+      <Project>{af296360-7f47-4930-b109-dd5a97ccca36}</Project>
+      <Name>AriGesDb</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

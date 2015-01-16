@@ -1,0 +1,6 @@
+C:\Proyectos\AriGesInv\AriGesDb\bin\Debug\AriGesDb.dll.config
+C:\Proyectos\AriGesInv\AriGesDb\bin\Debug\AriGesDb.dll
+C:\Proyectos\AriGesInv\AriGesDb\bin\Debug\AriGesDb.pdb
+C:\Proyectos\AriGesInv\AriGesDb\obj\Debug\AriGesDb.csprojResolveAssemblyReference.cache
+C:\Proyectos\AriGesInv\AriGesDb\obj\Debug\AriGesDb.dll
+C:\Proyectos\AriGesInv\AriGesDb\obj\Debug\AriGesDb.pdb

@@ -17,7 +17,7 @@
                     <a href="#page2">Another Page (normal)</a>
                 </p>
                 <p>
-                    <a href="#page3" data-rel="dialog">A Dialog (dialog)</a>
+                    <a href="#third" data-rel="dialog">A Dialog (dialog)</a>
                 </p>
             </div>
         </div>
@@ -29,34 +29,34 @@
                 <p>
                     This is the Second
                 </p>
-                <div data-role="collapsible">
-                    <h3>Satellite Offices</h3>
-                    <p>
-                        <strong>Asia:</strong>
-                        Another Address Here
-                    </p>
-                    <p>
-                        <strong>Europe:</strong>
-                        Another Address Here
-                    </p>
-                    <p>
-                        <strong>Mars:</strong>
-                        Another Address Here
-                    </p>
+                <div data-role="collapsible-set">
+                    <div data-role="collapsible">
+                        <h3>First</h3>
+                        <p>
+                            Hello World...
+                        </p>
+                    </div>
+                    <div data-role="collapsible" data-content-theme="d" data-iconpos="right">
+                        <h3>First</h3>
+                        <p>
+                            Hello World again...
+                        </p>
+                    </div>
                 </div>
             </div>
         </div>
-        <div data-role="page" id="page3">
+        <div data-role="page" id="third">
             <div data-role="header">
-                <h1>The Third</h1>
+                <h1>Test</h1>
             </div>
             <div data-role="content">
-                <p>
-                    This is the Third
-                </p>
-                <a href="#page2" data-role="button">Page 2</a>
-                <a href="#first" data-role="button" data-rel="back">Cancel</a>
+                <input type="button" id="pageBtn" value="Go to page">
             </div>
         </div>
+        <script>
+            $("#pageBtn").click(function () {
+                $.mobile.changePage("test2.html", { transition: "flip" });
+            });
+        </script>
     </body>
 </html>

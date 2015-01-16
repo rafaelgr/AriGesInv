@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AriGesInvWeb", "AriGesInvWe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AriGesInvTest", "AriGesInvTest\AriGesInvTest.csproj", "{A017D598-5D01-4AB4-A4EE-9539812B0BCD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AriGesDb", "AriGesDb\AriGesDb.csproj", "{AF296360-7F47-4930-B109-DD5A97CCCA36}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{A017D598-5D01-4AB4-A4EE-9539812B0BCD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A017D598-5D01-4AB4-A4EE-9539812B0BCD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A017D598-5D01-4AB4-A4EE-9539812B0BCD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF296360-7F47-4930-B109-DD5A97CCCA36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF296360-7F47-4930-B109-DD5A97CCCA36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF296360-7F47-4930-B109-DD5A97CCCA36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF296360-7F47-4930-B109-DD5A97CCCA36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

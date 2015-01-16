@@ -1,0 +1,45 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>Test Dynamic</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link href="Content/jquery.mobile-1.4.5.css" rel="stylesheet" />
+        <script src="Scripts/jquery-1.8.3.js"></script>
+        <script src="Scripts/jquery.mobile-1.4.5.js"></script>
+    </head>
+    <body>
+        <div data-role="page" id="homepage">
+            <div data-role="header">
+                <h1>Dynamic Pages</h1>
+            </div>
+            <div data-role="content">
+                <ul id="peopleList" data-role="listview" data-inset="true">
+
+                </ul>
+            </div>
+        </div>
+        <script>
+            $('#homepage').bind('pagebeforecreate', function (e) {
+                // load in our people
+                $.get("people.json", {}, function(res,code) {
+                    var s = "";
+                    for (var i = 0; i < res.length; i++) {
+                        s+="<li><a href='test_people.html?id="+res[i].id+"'>"+res[i].name+"</a></li>";
+                    }
+                    $("#peopleList").html(s).listview("refresh");
+                }, "json");
+            });
+            $("#personpage").live("pagebeforeshow", function(e) {
+                var thisPage = $(this);
+                var thisUrl = thisPage.data("url");
+                var thisId = thisUrl.split("=")[1];
+                $.get("person"+thisId+".json", {}, function(res, code) {
+                    $("h1",thisPage).text(res.name);
+                    s = "<p>"+res.name +" is a "+res.gender+" and likes "+res.hobbies+"</p>";
+                    $("#contentArea", thisPage).html(s);
+                }, "json");
+            });
+        </script>
+    </body>
+</html>

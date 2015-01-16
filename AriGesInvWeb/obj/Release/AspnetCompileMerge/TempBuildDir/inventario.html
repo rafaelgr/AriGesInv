@@ -1,0 +1,107 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>AriGes INV</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
+        <link href="Content/jquery.mobile-1.4.5.css" rel="stylesheet" />
+        <link href="css/ariges-inv-web.css" rel="stylesheet" />
+
+        <script src="Scripts/jquery-1.8.3.js"></script>
+        <script src="Scripts/jquery.mobile-1.4.5.js"></script>
+        <script src="Scripts/jquery.validate.js"></script>
+    </head>
+    <body>
+        <!-- pgInv -->
+        <div data-role="page" id="pgInv">
+            <div data-role="header">
+                <a href="login.html" data-icon="home">Inicio</a>
+                <h1>AriGes INV</h1>
+                <a href="inventario.html" data-icon="refresh">Recargar</a>
+            </div>
+            <div data-role="content">
+                <form id="frmEan">
+                    <div data-role="fieldcontainer">
+                        <label for="ean">Código de barras:</label>
+                        <input id="txtEan" name="ean" type="search" />
+                    </div>
+                    <div data-role="fieldcontainer">
+                        <input id="btnEan" name="buscar" type="button" data-icon="search" value="BUSCAR" />
+                    </div>
+                </form>
+            </div>
+            <div data-role="footer">
+                <h5>
+                    <i>&copy; Ariadna Software 2015</i>
+                </h5>
+            </div>
+        </div>
+        <!-- FIN pgInv -->
+        <!-- pgArt -->
+        <div data-role="page" id="pgArt">
+            <div data-role="header">
+                <a href="login.html" data-icon="home">Inicio</a>
+                <h1>AriGes INV</h1>
+            </div>
+            <div data-role="content">
+                <form id="frmArt">
+                    <div>
+                        <h2>El articulo que me mola</h2>
+                    </div>
+                    <div data-role="fieldset">
+                        <label for="almacen">Almacén</label>
+                        <select name="almacen" id="almacen">
+                            <option value="1">Principal</option>
+                        </select>
+                    </div>
+                    <div data-role="fieldset">
+                        <div class="ui-grid-a">
+                            <div class="ui-block-a">
+                                <b>Cantidad calculada:</b><span id="txtStock">12</span>
+                            </div>
+                            <div class="ui-block-b">
+                                <b>Precio Venta:</b><span id="txtPrecio">145,23</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div data-role="fieldset">
+                        <input id="txtCantidad" name="cantidad" type="text" placeholder="Cantidad contada"  />
+                    </div>
+                    <div data-role="fieldcontainer">
+                        <input id="btnArt" name="buscar" type="button" data-icon="gear" value="Actualizar STOCK" />
+                    </div>
+                </form>
+            </div>
+            <div data-role="footer">
+                <h5>
+                    <i>&copy; Ariadna Software 2015</i>
+                </h5>
+            </div>
+        </div>
+        <!-- FIN pgArt -->
+
+        <!-- pgMsg -->
+        <div data-role="page" id="pgMsg">
+            <div data-role="header">
+                <h1>Mensaje</h1>
+            </div>
+            <div data-role="content">
+                <p id="txtMsg"></p>
+                <div>
+                    <input type="button" id="btnMsg" value="ACEPTAR"/>
+                </div>
+            </div>
+        </div>
+        <!-- FIN pgMsg -->
+        <script>
+            $("#btnEan").click(function () {
+                $.mobile.changePage("#pgArt");
+            });
+            $("#btnMsg").click(function () {
+                $.mobile.changePage("#pgInv");
+            });
+        </script>
+        <script src="js/inventario.js"></script>
+    </body>
+</html>

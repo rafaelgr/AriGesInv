@@ -9,8 +9,11 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <_PublishTargetUrl>C:\Publicaciones\AriGesInv</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
+    <File Include="bin/AriGesDb.dll">
+      <publishTime>01/16/2015 13:25:23</publishTime>
+    </File>
     <File Include="bin/AriGesInvWeb.dll">
-      <publishTime>01/14/2015 13:29:17</publishTime>
+      <publishTime>01/16/2015 13:25:24</publishTime>
     </File>
     <File Include="Content/images/ajax-loader.gif">
       <publishTime>01/14/2015 10:01:53</publishTime>
@@ -657,11 +660,71 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <File Include="Content/jquery.mobile.theme-1.4.5.min.css">
       <publishTime>01/14/2015 10:01:50</publishTime>
     </File>
+    <File Include="css/ariges-inv-web.css">
+      <publishTime>01/16/2015 11:22:40</publishTime>
+    </File>
+    <File Include="img/0c469f57.jpeg">
+      <publishTime>01/14/2015 16:43:29</publishTime>
+    </File>
+    <File Include="img/183479_105257622886833_3347041_n.jpg">
+      <publishTime>01/14/2015 16:43:29</publishTime>
+    </File>
+    <File Include="img/DeathtoStock_NotStock.jpg">
+      <publishTime>01/14/2015 16:45:34</publishTime>
+    </File>
+    <File Include="img/DeathtoStock_NotStock10.jpg">
+      <publishTime>01/14/2015 16:45:34</publishTime>
+    </File>
+    <File Include="img/DeathtoStock_NotStock2.jpg">
+      <publishTime>01/14/2015 16:45:34</publishTime>
+    </File>
+    <File Include="img/DeathtoStock_NotStock3.jpg">
+      <publishTime>01/14/2015 16:45:34</publishTime>
+    </File>
+    <File Include="img/DeathtoStock_NotStock4.jpg">
+      <publishTime>01/14/2015 16:45:34</publishTime>
+    </File>
+    <File Include="img/DeathtoStock_NotStock5.jpg">
+      <publishTime>01/14/2015 16:45:34</publishTime>
+    </File>
+    <File Include="img/DeathtoStock_NotStock6.jpg">
+      <publishTime>01/14/2015 16:45:34</publishTime>
+    </File>
+    <File Include="img/DeathtoStock_NotStock7.jpg">
+      <publishTime>01/14/2015 16:45:34</publishTime>
+    </File>
+    <File Include="img/DeathtoStock_NotStock8.jpg">
+      <publishTime>01/14/2015 16:45:34</publishTime>
+    </File>
+    <File Include="img/DeathtoStock_NotStock9.jpg">
+      <publishTime>01/14/2015 16:45:34</publishTime>
+    </File>
+    <File Include="img/rgr_draw.jpg">
+      <publishTime>01/14/2015 16:43:29</publishTime>
+    </File>
+    <File Include="inventario.html">
+      <publishTime>01/16/2015 13:35:50</publishTime>
+    </File>
+    <File Include="js/ariges-inv-web.js">
+      <publishTime>01/16/2015 12:00:44</publishTime>
+    </File>
+    <File Include="js/inventario.js">
+      <publishTime>01/16/2015 12:32:53</publishTime>
+    </File>
+    <File Include="js/login.js">
+      <publishTime>01/16/2015 12:40:42</publishTime>
+    </File>
+    <File Include="login.html">
+      <publishTime>01/16/2015 13:36:16</publishTime>
+    </File>
+    <File Include="LoginApi.aspx">
+      <publishTime>01/16/2015 11:26:37</publishTime>
+    </File>
     <File Include="packages.config">
-      <publishTime>01/14/2015 10:01:53</publishTime>
+      <publishTime>01/16/2015 10:08:31</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>01/14/2015 16:35:37</publishTime>
+      <publishTime>01/16/2015 13:37:15</publishTime>
     </File>
     <File Include="Scripts/jquery-1.8.3.js">
       <publishTime>01/14/2015 10:01:47</publishTime>
@@ -678,6 +741,12 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
     <File Include="Scripts/jquery.mobile-1.4.5.min.map">
       <publishTime>01/14/2015 10:01:50</publishTime>
     </File>
+    <File Include="Scripts/jquery.validate.js">
+      <publishTime>01/16/2015 10:08:31</publishTime>
+    </File>
+    <File Include="Scripts/jquery.validate.min.js">
+      <publishTime>01/16/2015 10:08:31</publishTime>
+    </File>
     <File Include="test1.html">
       <publishTime>01/14/2015 13:24:30</publishTime>
     </File>
@@ -688,7 +757,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/14/2015 16:34:02</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>01/14/2015 13:29:18</publishTime>
+      <publishTime>01/16/2015 13:25:26</publishTime>
     </File>
   </ItemGroup>
 </Project>

@@ -3,3 +3,5 @@ C:\Proyectos\AriGesInv\AriGesInvWeb\bin\AriGesInvWeb.pdb
 C:\Proyectos\AriGesInv\AriGesInvWeb\obj\Debug\AriGesInvWeb.csprojResolveAssemblyReference.cache
 C:\Proyectos\AriGesInv\AriGesInvWeb\obj\Debug\AriGesInvWeb.dll
 C:\Proyectos\AriGesInv\AriGesInvWeb\obj\Debug\AriGesInvWeb.pdb
+C:\Proyectos\AriGesInv\AriGesInvWeb\bin\AriGesDb.dll
+C:\Proyectos\AriGesInv\AriGesInvWeb\bin\AriGesDb.pdb

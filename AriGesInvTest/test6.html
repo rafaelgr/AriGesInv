@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+        <title>Test6 Page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <link href="Content/jquery.mobile-1.4.5.css" rel="stylesheet" />
+        <script src="Scripts/jquery-1.8.3.js"></script>
+        <script src="Scripts/jquery.mobile-1.4.5.js"></script>
+    </head>
+    <body>
+        <div data-role="page" id="first">
+            <div data-role="header">
+                <h1>Tap tests</h1>
+            </div>
+            <div data-role="content">
+                <p>Tap anywhere on the page</p>
+                <p id="status"></p>
+            </div>
+        </div>
+        <script>
+            var tapCount = 0;
+            $('body').bind('tap', function (e) {
+                tapCount++;
+                $('#status').text('You just did a tape event: ' + tapCount);
+            });
+            $('body').bind('taphold', function (e) {
+                $('#status').text('A taphold event detected');
+            });
+
+        </script>
+    </body>
+</html>
