@@ -7,7 +7,7 @@
       <FileName>Usuario.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="AriGesDb.Articulo" Collapsed="true">
+  <Class Name="AriGesDb.Articulo">
     <Position X="4.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AIwAAEAGQAAAEEAAAAAAAEIIyABAkIAAAAIAAAIISAA=</HashCode>

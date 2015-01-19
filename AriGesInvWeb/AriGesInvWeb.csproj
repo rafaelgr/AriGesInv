@@ -288,9 +288,11 @@
     <Content Include="img\DeathtoStock_NotStock9.jpg" />
     <Content Include="img\rgr_draw.jpg" />
     <Content Include="inventario.html" />
+    <Content Include="InventarioApi.aspx" />
     <Content Include="js\ariges-inv-web.js" />
     <Content Include="js\inventario.js" />
     <Content Include="js\login.js" />
+    <Content Include="js\numeral.min.js" />
     <Content Include="login.html" />
     <Content Include="LoginApi.aspx" />
     <Content Include="packages.config" />
@@ -307,6 +309,13 @@
     <Content Include="Scripts\jquery.mobile-1.4.5.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="InventarioApi.aspx.cs">
+      <DependentUpon>InventarioApi.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="InventarioApi.aspx.designer.cs">
+      <DependentUpon>InventarioApi.aspx</DependentUpon>
+    </Compile>
     <Compile Include="LoginApi.aspx.cs">
       <DependentUpon>LoginApi.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -12,9 +12,9 @@ var LoginApp = {};
         app.bindings();
     }
     app.bindings = function () {
-        $('#btnLogin').click(function () {
+        $('#btnLogin').click(function (e) {
             // eliminamos el comportamiento por defecto
-            // e.preventDefault();
+            e.preventDefault();
             // comprobamos que tenemos los campos necesarios
             if (!app.validateForm()) return;
             // ahora hacemos el login
@@ -35,7 +35,8 @@ var LoginApp = {};
                         $msg.text('Login y/o password incorrectos');
                         $.mobile.changePage('#pgMsg');
                     } else {
-                        $.mobile.changePage('inventario.html');
+                        //$.mobile.changePage('inventario.html', {"reloadPage":true});
+                        window.open('inventario.html', '_self');
                     }
                 },
                 error: function (xhr, textStatus, errorThrwon) {

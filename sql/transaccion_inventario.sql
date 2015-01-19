@@ -45,3 +45,5 @@ WHERE codartic = 'VALOR' AND codalmac = 'VALOR';
 # -- ver si hay trabajador en la straba
 SELECT codtraba FROM straba WHERE login = 'root';
 
+#-- calcular el iva
+SELECT porceiva FROM tiposiva WHERE codigiva = 1;
