@@ -5,33 +5,35 @@
         <title>AriGes INV</title>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-        <link href="Content/jquery.mobile-1.4.5.css" rel="stylesheet" />
+        <!--<link href="Content/jquery.mobile-1.4.5.css" rel="stylesheet" />-->
+        <link href="css/jquery.mobile.flatui.css" rel="stylesheet" />
         <link href="css/ariges-inv-web.css" rel="stylesheet" />
 
         <script src="Scripts/jquery-1.8.3.js"></script>
         <script src="Scripts/jquery.mobile-1.4.5.js"></script>
         <script src="Scripts/jquery.validate.js"></script>
+        <script src="js/numeral.min.js"></script>
     </head>
     <body>
         <!-- pgInv -->
-        <div data-role="page" id="pgInv">
-            <div data-role="header">
-                <a href="login.html" data-icon="home">Inicio</a>
+        <div data-role="page" id="pgInv" data-theme="b">
+            <div data-role="header" data-theme="b">
+                <a href="login.html" rel="external" data-icon="home">Inicio</a>
                 <h1>AriGes INV</h1>
                 <a href="inventario.html" data-icon="refresh">Recargar</a>
             </div>
-            <div data-role="content">
+            <div data-role="content" data-theme="b">
                 <form id="frmEan">
                     <div data-role="fieldcontainer">
                         <label for="ean">Código de barras:</label>
-                        <input id="txtEan" name="ean" type="search" />
+                        <input type="text" id="txtEan" name="ean"/>
                     </div>
                     <div data-role="fieldcontainer">
                         <input id="btnEan" name="buscar" type="button" data-icon="search" value="BUSCAR" />
                     </div>
                 </form>
             </div>
-            <div data-role="footer">
+            <div data-role="footer" data-theme="b">
                 <h5>
                     <i>&copy; Ariadna Software 2015</i>
                 </h5>
@@ -39,41 +41,44 @@
         </div>
         <!-- FIN pgInv -->
         <!-- pgArt -->
-        <div data-role="page" id="pgArt">
-            <div data-role="header">
-                <a href="login.html" data-icon="home">Inicio</a>
+        <div data-role="page" id="pgArt" data-theme="b">
+            <div data-role="header" data-theme="b">
+                <a href="login.html" rel="external" data-icon="home">Inicio</a>
                 <h1>AriGes INV</h1>
+                <a href="#pgInv" data-icon="arrow-l">Atrás</a>
             </div>
-            <div data-role="content">
+            <div data-role="content" data-theme="b">
                 <form id="frmArt">
                     <div>
-                        <h2>El articulo que me mola</h2>
+                        <h2 id="txtNombre">NO HA SELECCIONADO ARTÍCULO</h2>
                     </div>
                     <div data-role="fieldset">
-                        <label for="almacen">Almacén</label>
-                        <select name="almacen" id="almacen">
-                            <option value="1">Principal</option>
+                        <label for="almacenes">Almacén</label>
+                        <select name="almacenes" id="almacenes">
+                            <option value="1" selected="selected">NO ALMACEN</option>
                         </select>
                     </div>
                     <div data-role="fieldset">
                         <div class="ui-grid-a">
                             <div class="ui-block-a">
-                                <b>Cantidad calculada:</b><span id="txtStock">12</span>
+                                <b>STOCK: </b><span id="txtStock">0</span>
                             </div>
                             <div class="ui-block-b">
-                                <b>Precio Venta:</b><span id="txtPrecio">145,23</span>
+                                <b>PVP (con iva): </b><span id="txtPrecio">0</span>
                             </div>
                         </div>
                     </div>
+                    <hr />
                     <div data-role="fieldset">
-                        <input id="txtCantidad" name="cantidad" type="text" placeholder="Cantidad contada"  />
+                        <label for="cantidad">STOCK REAL:</label>
+                        <input id="txtCantidad" name="cantidad" type="text"/>
                     </div>
                     <div data-role="fieldcontainer">
-                        <input id="btnArt" name="buscar" type="button" data-icon="gear" value="Actualizar STOCK" />
+                        <input id="btnActStock" name="actStock" type="button" data-icon="gear" value="Actualizar STOCK" />
                     </div>
                 </form>
             </div>
-            <div data-role="footer">
+            <div data-role="footer" data-theme="b">
                 <h5>
                     <i>&copy; Ariadna Software 2015</i>
                 </h5>
@@ -82,11 +87,11 @@
         <!-- FIN pgArt -->
 
         <!-- pgMsg -->
-        <div data-role="page" id="pgMsg">
-            <div data-role="header">
+        <div data-role="page" id="pgMsg" data-theme="b">
+            <div data-role="header" data-theme="b">
                 <h1>Mensaje</h1>
             </div>
-            <div data-role="content">
+            <div data-role="content" data-theme="b">
                 <p id="txtMsg"></p>
                 <div>
                     <input type="button" id="btnMsg" value="ACEPTAR"/>
@@ -95,9 +100,6 @@
         </div>
         <!-- FIN pgMsg -->
         <script>
-            $("#btnEan").click(function () {
-                $.mobile.changePage("#pgArt");
-            });
             $("#btnMsg").click(function () {
                 $.mobile.changePage("#pgInv");
             });

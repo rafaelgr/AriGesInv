@@ -274,6 +274,8 @@
     <Content Include="Content\jquery.mobile.theme-1.4.5.css" />
     <Content Include="Content\jquery.mobile.theme-1.4.5.min.css" />
     <Content Include="css\ariges-inv-web.css" />
+    <Content Include="css\images\ajax-loader.gif" />
+    <Content Include="css\jquery.mobile.flatui.css" />
     <Content Include="img\0c469f57.jpeg" />
     <Content Include="img\183479_105257622886833_3347041_n.jpg" />
     <Content Include="img\DeathtoStock_NotStock.jpg" />
@@ -296,6 +298,17 @@
     <Content Include="login.html" />
     <Content Include="LoginApi.aspx" />
     <Content Include="packages.config" />
+    <Content Include="css\fonts\Flat-UI-Icons-24.ttf" />
+    <Content Include="css\fonts\Flat-UI-Icons-24.woff" />
+    <Content Include="css\fonts\lato-black.ttf" />
+    <Content Include="css\fonts\lato-black.woff" />
+    <Content Include="css\fonts\lato-bold.ttf" />
+    <Content Include="css\fonts\lato-bold.woff" />
+    <Content Include="css\fonts\lato-italic.ttf" />
+    <Content Include="css\fonts\lato-italic.woff" />
+    <Content Include="css\fonts\lato-regular.ttf" />
+    <Content Include="css\fonts\lato-regular.woff" />
+    <Content Include="css\images\Thumbs.db" />
     <None Include="Properties\PublishProfiles\AriGesInv.pubxml" />
     <None Include="Scripts\jquery-1.8.3.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.3.js" />

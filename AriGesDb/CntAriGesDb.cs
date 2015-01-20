@@ -11,6 +11,7 @@ namespace AriGesDb
     public static partial class CntAriGesDb
     {
         #region Conexiones
+        
         public static MySqlConnection GetConnectionUsuarios()
         {
             // leer la cadena de conexion del config
@@ -19,6 +20,7 @@ namespace AriGesDb
             MySqlConnection conn = new MySqlConnection(connectionString);
             return conn;
         }
+        
         public static MySqlConnection GetConnectionAriges()
         {
             // leer la cadena de conexion del config
@@ -27,6 +29,7 @@ namespace AriGesDb
             MySqlConnection conn = new MySqlConnection(connectionString);
             return conn;
         }
+        
         public static MySqlConnection GetConnectionConta()
         {
             // leer la cadena de conexion del config
@@ -35,12 +38,15 @@ namespace AriGesDb
             MySqlConnection conn = new MySqlConnection(connectionString);
             return conn;
         }
+        
         #endregion 
-
+        
         #region Usuario
+        
         public static Usuario GetUsuario(MySqlDataReader rdr)
         {
-            if (rdr.IsDBNull(rdr.GetOrdinal("CODUSU"))) return null;
+            if (rdr.IsDBNull(rdr.GetOrdinal("CODUSU")))
+                return null;
             Usuario u = new Usuario();
             u.CodUsu = rdr.GetInt32("CODUSU");
             u.NomUsu = rdr.GetString("NOMUSU");
@@ -48,7 +54,7 @@ namespace AriGesDb
             u.PasswordPropio = rdr.GetString("PASSWORD_PROPIO");
             return u;
         }
-
+        
         public static Usuario GetUsuario(string login, string password)
         {
             Usuario u = null;
@@ -73,7 +79,7 @@ namespace AriGesDb
                     u = GetUsuario(rdr);
                 }
                 rdr.Close();
-
+                
                 if (u != null)
                 {
                     using (MySqlConnection conn2 = GetConnectionAriges())
@@ -104,9 +110,11 @@ namespace AriGesDb
             }
             return u;
         }
-        #endregion
 
+        #endregion
+        
         #region Artículos
+            
         public static Articulo GetArticuloEan(MySqlDataReader rdr)
         {
             Articulo a = new Articulo();
@@ -125,7 +133,7 @@ namespace AriGesDb
             a.Stock = rdr.GetDecimal("STOCK");
             return a;
         }
-
+            
         public static Articulo GetArticuloEan(string ean)
         {
             Articulo a = null;
@@ -155,7 +163,7 @@ namespace AriGesDb
                         WHERE ar3.codigoea = '{0}'";
                 sql = String.Format(sql, ean);
                 cmd.CommandText = sql;
-                MySqlDataReader rdr = cmd.ExecuteReader();
+                MySqlDataReader rdr = cmd.ExecuteReader(); 
                 if (rdr.HasRows)
                 {
                     rdr.Read();
@@ -166,7 +174,7 @@ namespace AriGesDb
             }
             return a;
         }
-
+            
         public static IList<Articulo> GetArticulosEan(string ean)
         {
             IList<Articulo> la = new List<Articulo>();
@@ -214,7 +222,7 @@ namespace AriGesDb
             }
             return la;
         }
-
+            
         public static decimal GetPorIva(int codigiva)
         {
             decimal p = 0;
@@ -236,6 +244,81 @@ namespace AriGesDb
             }
             return p;
         }
+            
+        public static void SetInventario(string codartic, int codalmac, decimal stock, decimal cantidad, decimal importe, int codigope)
+        {
+            MySqlConnection conn = null;
+            MySqlTransaction tr = null;
+                
+            try
+            {
+                conn = GetConnectionAriges();
+                conn.Open();
+                // inicia transacción
+                tr = conn.BeginTransaction();
+                // procesos protegidos por la transacción
+                SetShinve(codartic, codalmac, conn);
+                SetSmoval(codartic, codalmac, stock, cantidad, importe, codigope, conn);
+                SetSalmac(codartic, codalmac, cantidad, conn);
+                // fin transacción.
+                tr.Commit();
+            }
+            catch (MySqlException ex)
+            {
+                try
+                {
+                    tr.Rollback();
+                    throw ex;
+                }
+                catch (MySqlException ex2)
+                {
+                    throw ex2;
+                }
+            }
+            finally
+            {
+                if (conn != null)
+                {
+                    conn.Close();
+                }
+            }
+        }
+
+        private static void SetShinve(string codartic, int codalmac, MySqlConnection conn)
+        {
+            MySqlCommand cmd = conn.CreateCommand();
+            string sql = @"INSERT IGNORE INTO shinve(codartic, codalmac, fechainv, horainve, existenc)
+                            SELECT codartic, codalmac, fechainv, horainve, stockinv FROM salmac
+                            WHERE codartic = '{0}' AND codalmac = {1}";
+            sql = String.Format(sql, codartic, codalmac);
+            cmd.CommandText = sql;
+            cmd.ExecuteNonQuery();
+        }
+
+        private static void SetSmoval(string codartic, int codalmac, decimal stock, decimal cantidad, decimal importe, int codigope, MySqlConnection conn)
+        {
+            decimal diferencia = cantidad - stock;
+            //
+            MySqlCommand cmd = conn.CreateCommand();
+            //                                    0         1         2         3         4         5         6          7         8         9        10
+            string sql = @"INSERT INTO smoval (codartic, codalmac, fechamov, horamovi, tipomovi, detamovi, impormov, codigope, letraser, document, numlinea, cantidad)
+                    VALUES ('{0}',{1},'{2:yyyy-MM-dd}','{3:yyyy-MM-dd HH:mm:ss}',{4},'{5}',{6},'{7}','{8}','{9}',{10}, {11})";
+            sql = String.Format(sql, codartic, codalmac, DateTime.Now, DateTime.Now, 1, "DFI", (diferencia * importe).ToString().Replace(',','.'), codigope, "", "LECTOR", 1, cantidad);
+            cmd.CommandText = sql;
+            cmd.ExecuteNonQuery();
+        }
+
+        private static void SetSalmac(string codartic, int codalmac, decimal cantidad, MySqlConnection conn)
+        {
+            MySqlCommand cmd = conn.CreateCommand();
+            string sql = @"UPDATE salmac SET 
+                            canstock = {0}, statusin=0, stockinv={0}, fechainv='{1:yyyy-MM-dd}', horainve='{1:yyyy-MM-dd HH:mm:ss}'
+                            WHERE codartic = '{2}' AND codalmac = {3}";
+            sql = String.Format(sql, cantidad, DateTime.Now, codartic, codalmac);
+            cmd.CommandText = sql;
+            cmd.ExecuteNonQuery();
+        }
+
         #endregion 
     }
 }

@@ -5,7 +5,8 @@
         <title>AriGes INV</title>
         <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
-        <link href="Content/jquery.mobile-1.4.5.css" rel="stylesheet" />
+        <!--<link href="Content/jquery.mobile-1.4.5.css" rel="stylesheet" />-->
+        <link href="css/jquery.mobile.flatui.css" rel="stylesheet" />
         <link href="css/ariges-inv-web.css" rel="stylesheet" />
 
         <script src="Scripts/jquery-1.8.3.js"></script>
@@ -49,26 +50,28 @@
             <div data-role="content" data-theme="b">
                 <form id="frmArt">
                     <div>
-                        <h2 id="txtNombre">El articulo que me mola</h2>
+                        <h2 id="txtNombre">NO HA SELECCIONADO ARTÍCULO</h2>
                     </div>
                     <div data-role="fieldset">
                         <label for="almacenes">Almacén</label>
                         <select name="almacenes" id="almacenes">
-                            <option value="1" selected="selected">Principal</option>
+                            <option value="1" selected="selected">NO ALMACEN</option>
                         </select>
                     </div>
                     <div data-role="fieldset">
                         <div class="ui-grid-a">
                             <div class="ui-block-a">
-                                <b>Cantidad calculada:</b><span id="txtStock">12</span>
+                                <b>STOCK: </b><span id="txtStock">0</span>
                             </div>
                             <div class="ui-block-b">
-                                <b>Precio Venta:</b><span id="txtPrecio">145,23</span>
+                                <b>PVP (con iva): </b><span id="txtPrecio">0</span>
                             </div>
                         </div>
                     </div>
+                    <hr />
                     <div data-role="fieldset">
-                        <input id="txtCantidad" name="cantidad" type="text" placeholder="Cantidad contada"  />
+                        <label for="cantidad">STOCK REAL:</label>
+                        <input id="txtCantidad" name="cantidad" type="text"/>
                     </div>
                     <div data-role="fieldcontainer">
                         <input id="btnActStock" name="actStock" type="button" data-icon="gear" value="Actualizar STOCK" />

@@ -9,6 +9,9 @@ var LoginApp = {};
 
     // definición de funciones
     app.init = function () {
+        $('#frmLogin').submit(function (e) {
+            e.preventDefault();
+        });
         app.bindings();
     }
     app.bindings = function () {

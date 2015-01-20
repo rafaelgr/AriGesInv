@@ -10,6 +10,12 @@ var InvetarioApp = {};
         $stock = $('#txtStock'),
         $precio = $('#txtPrecio'),
         $nombre = $('#txtNombre')
+    var codArtic = 0,
+        codAlmac = 0,
+        cantidad = 0,
+        stock = 0,
+        codigope = 0,
+        importe = 0;
     var datos = [];
     var almacenes = [];
     var almacen = function (codigo, nombre) {
@@ -26,9 +32,15 @@ var InvetarioApp = {};
     numeral.language('es');
     // definición de funciones.
     app.int = function () {
+        $('#frmEan').submit(function (e) {
+            e.preventDefault();
+        });
         app.bindings();
     }
     app.bindings = function () {
+        $ean.keypress(function (e) {
+            if (e.keyCode == 13) $('#btnEan').click();
+        });
         $almacenes.change(function () {
             // han cambiado de almacén y hay que mostrar
             // los datos correspondientes
@@ -36,6 +48,8 @@ var InvetarioApp = {};
                 if (datos[i].CodigoAlmacen == $almacenes.val()) {
                     $stock.text(numeral(datos[i].Stock).format('#,###,##0.00'));
                     $precio.text(numeral(datos[i].PrecioConIva).format('#,###,##0.00'));
+                    codAlmac = datos[i].CodigoAlmacen;
+                    stock = datos[i].Stock;
                 }
             }
         });
@@ -107,6 +121,10 @@ var InvetarioApp = {};
                                                       $nombre.text(datos[0].NombreArticulo);
                                                       $stock.text(numeral(datos[0].Stock).format('#,###,##0.00'));
                                                       $precio.text(numeral(datos[0].PrecioConIva).format('#,###,##0.00'));
+                                                      codArtic = datos[0].CodigoArticulo;
+                                                      stock = datos[0].Stock;
+                                                      codAlmac = datos[0].CodigoAlmacen;
+                                                      importe = datos[0].PrecioUc;
                                                       // mostramos la página
                                                       $.mobile.changePage('#pgArt');
                                                   }
@@ -134,6 +152,49 @@ var InvetarioApp = {};
         });
         $('#btnActStock').click(function () {
             // actualizar el stock con la cantidad
+            if (!app.validateFormArt()) return;
+            // recogemos la cantidad
+            cantidad = $cantidad.val();
+            var data = {
+                "codartic": codArtic,
+                "codalmac": codAlmac,
+                "stock": stock,
+                "cantidad": cantidad,
+                "importe": importe,
+                "codigope": 0
+            };
+            $.ajax({
+                type: "POST",
+                url: "InventarioApi.aspx/SetInventario",
+                dataType: "json",
+                contentType: "application/json",
+                data: JSON.stringify(data),
+                success: function (data, status) {
+                    // Regresa el mensaje
+                    if (!data.d) {
+                        // mostrarMensaje('Login y/o password incorrectos');
+                        $msg.text('No se ha obtenido respuesta, revise conexiones.');
+                        $.mobile.changePage('#pgMsg');
+                    } else {
+                        if (data.d == "*") {
+                            $msg.text('Inventario actualizado correctamente.');
+                            $.mobile.changePage('#pgMsg');
+                        } else {
+                            $msg.text(data.d);
+                            $.mobile.changePage('#pgMsg');
+                        }
+                        //$.mobile.changePage('inventario.html', {"reloadPage":true});
+                        //window.open('inventario.html', '_self');
+                    }
+                },
+                error: function (xhr, textStatus, errorThrwon) {
+                    var m = xhr.responseText;
+                    if (!m) m = "Error general posiblemente falla la conexión";
+                    $msg.text(m);
+                    $.mobile.changePage('#pgMsg');
+                }
+            });
+
         });
     }
     app.validateFormEan = function () {
@@ -151,6 +212,23 @@ var InvetarioApp = {};
                                   }
                               });
         return $('#frmEan').valid();
+    }
+    app.validateFormArt = function () {
+        $('#frmArt').validate({
+            rules: {
+                cantidad: { required: true, min: 1 }
+            },
+            messages: {
+                cantidad: {
+                    required: 'Introduzca una cantidad',
+                    min: 'El valor no puede ser cero ni negativo'
+                }
+            },
+            errorPlacement: function (error, element) {
+                error.insertAfter(element.parent());
+            }
+        });
+        return $('#frmArt').valid();
     }
     app.int();
 })(InvetarioApp);

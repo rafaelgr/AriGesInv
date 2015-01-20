@@ -31,6 +31,22 @@ namespace AriGesInvWeb
             return CntAriGesDb.GetArticulosEan(ean);
         }
 
+        [WebMethod]
+        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        public static string SetInventario(string codartic, int codalmac, decimal stock, decimal cantidad, decimal importe, int codigope)
+        {
+            string m = "*";
+            try
+            {
+                CntAriGesDb.SetInventario(codartic, codalmac, stock, cantidad, importe, codigope);
+            }
+            catch (Exception ex)
+            {
+                m = ex.Message;
+            }
+            return m;
+        }
+
         
         #endregion 
     }
