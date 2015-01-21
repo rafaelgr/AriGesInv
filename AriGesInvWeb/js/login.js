@@ -39,6 +39,7 @@ var LoginApp = {};
                         $.mobile.changePage('#pgMsg');
                     } else {
                         //$.mobile.changePage('inventario.html', {"reloadPage":true});
+                        setCookie('userAriFace', JSON.stringify(data.d), 1);
                         window.open('inventario.html', '_self');
                     }
                 },
