@@ -298,12 +298,18 @@ namespace AriGesDb
         private static void SetSmoval(string codartic, int codalmac, decimal stock, decimal cantidad, decimal importe, int codigope, MySqlConnection conn)
         {
             decimal diferencia = cantidad - stock;
+            int tipoMovi = 1;
+            if (diferencia < 0)
+            {
+                cantidad = -cantidad;
+                tipoMovi = 0;
+            }
             //
             MySqlCommand cmd = conn.CreateCommand();
             //                                    0         1         2         3         4         5         6          7         8         9        10
             string sql = @"INSERT INTO smoval (codartic, codalmac, fechamov, horamovi, tipomovi, detamovi, impormov, codigope, letraser, document, numlinea, cantidad)
                     VALUES ('{0}',{1},'{2:yyyy-MM-dd}','{3:yyyy-MM-dd HH:mm:ss}',{4},'{5}',{6},'{7}','{8}','{9}',{10}, {11})";
-            sql = String.Format(sql, codartic, codalmac, DateTime.Now, DateTime.Now, 1, "DFI", (diferencia * importe).ToString().Replace(',','.'), codigope, "", "LECTOR", 1, cantidad);
+            sql = String.Format(sql, codartic, codalmac, DateTime.Now, DateTime.Now, tipoMovi, "DFI", (diferencia * importe).ToString().Replace(',','.'), codigope, "", "LECTOR", 1, cantidad);
             cmd.CommandText = sql;
             cmd.ExecuteNonQuery();
         }

@@ -184,7 +184,8 @@ var InvetarioApp = {};
                            }
                            else {
                                if (data.d == "*") {
-                                   $msg.text('Inventario actualizado correctamente.');
+                                   $msg.css('color','blue');
+                                   $msg.text("Inventario actualizado correctamente.");
                                    $.mobile.changePage('#pgMsg');
                                }
                                else {
