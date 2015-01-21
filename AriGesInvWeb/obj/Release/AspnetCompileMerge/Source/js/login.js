@@ -36,9 +36,10 @@ var LoginApp = {};
                     if (!data.d) {
                         // mostrarMensaje('Login y/o password incorrectos');
                         $msg.text('Login y/o password incorrectos');
-                        $.mobile.changePage('#pgMsg');
+                        $.mobile.changePage('#pgMsg', { transition: 'pop', role: 'dialog' });
                     } else {
                         //$.mobile.changePage('inventario.html', {"reloadPage":true});
+                        setCookie('userAriFace', JSON.stringify(data.d), 1);
                         window.open('inventario.html', '_self');
                     }
                 },
@@ -46,7 +47,7 @@ var LoginApp = {};
                     var m = xhr.responseText;
                     if (!m) m = "Error general posiblemente falla la conexión";
                     $msg.text(m);
-                    $.mobile.changePage('#pgMsg');
+                    $.mobile.changePage('#pgMsg', { transition: 'pop', role: 'dialog' });
                 }
             });
         });

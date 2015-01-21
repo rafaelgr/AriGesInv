@@ -74,7 +74,7 @@ var InvetarioApp = {};
                            if (!data.d) {
                                // 
                                $msg.text('No existe ningún artículo con ese ean');
-                               $.mobile.changePage('#pgMsg');
+                               $.mobile.changePage('#pgMsg', { transition: 'pop', role: 'dialog' });
                            }
                            else {
                                // para comprobaciones en inventario
@@ -95,7 +95,7 @@ var InvetarioApp = {};
                                               if (!data.d) {
                                                   // 
                                                   $msg.text('No hay datos de stock de este artículo');
-                                                  $.mobile.changePage('#pgMsg');
+                                                  $.mobile.changePage('#pgMsg', { transition: 'pop', role: 'dialog' });
                                               }
                                               else {
                                                   // antes de asignar iniciamos variables
@@ -134,7 +134,7 @@ var InvetarioApp = {};
                                               if (!m)
                                                   m = "Error general posiblemente falla la conexión";
                                               $msg.text(m);
-                                              $.mobile.changePage('#pgMsg');
+                                              $.mobile.changePage('#pgMsg', { transition: 'pop', role: 'dialog' });
                                           }
                                       });
                            }
@@ -144,7 +144,7 @@ var InvetarioApp = {};
                            if (!m)
                                m = "Error general posiblemente falla la conexión";
                            $msg.text(m);
-                           $.mobile.changePage('#pgMsg');
+                           $.mobile.changePage('#pgMsg', { transition: 'pop', role: 'dialog' });
                        }
                    });
             // leer los artículo y el stock
@@ -166,7 +166,7 @@ var InvetarioApp = {};
             };
             if (articulo.Status == 1) {
                 $msg.text('Este artículo ya está inventariándose en este almacén.');
-                $.mobile.changePage('#pgMsg');
+                $.mobile.changePage('#pgMsg', { transition: 'pop', role: 'dialog' });
                 return;
             }
             $.ajax({
@@ -180,17 +180,17 @@ var InvetarioApp = {};
                            if (!data.d) {
                                // mostrarMensaje('Login y/o password incorrectos');
                                $msg.text('No se ha obtenido respuesta, revise conexiones.');
-                               $.mobile.changePage('#pgMsg');
+                               $.mobile.changePage('#pgMsg', { transition: 'pop', role: 'dialog' });
                            }
                            else {
                                if (data.d == "*") {
                                    $msg.css('color','blue');
                                    $msg.text("Inventario actualizado correctamente.");
-                                   $.mobile.changePage('#pgMsg');
+                                   $.mobile.changePage('#pgMsg', { transition: 'pop', role: 'dialog' });
                                }
                                else {
                                    $msg.text(data.d);
-                                   $.mobile.changePage('#pgMsg');
+                                   $.mobile.changePage('#pgMsg', { transition: 'pop', role: 'dialog' });
                                }
                                //$.mobile.changePage('inventario.html', {"reloadPage":true});
                                //window.open('inventario.html', '_self');
@@ -201,7 +201,7 @@ var InvetarioApp = {};
                            if (!m)
                                m = "Error general posiblemente falla la conexión";
                            $msg.text(m);
-                           $.mobile.changePage('#pgMsg');
+                           $.mobile.changePage('#pgMsg', { transition: 'pop', role: 'dialog' });
                        }
                    });
         });

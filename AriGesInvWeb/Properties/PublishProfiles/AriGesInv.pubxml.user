@@ -10,10 +10,10 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/AriGesDb.dll">
-      <publishTime>01/20/2015 18:54:10</publishTime>
+      <publishTime>01/21/2015 13:15:17</publishTime>
     </File>
     <File Include="bin/AriGesInvWeb.dll">
-      <publishTime>01/20/2015 18:54:12</publishTime>
+      <publishTime>01/21/2015 13:15:17</publishTime>
     </File>
     <File Include="Content/images/ajax-loader.gif">
       <publishTime>01/14/2015 10:01:53</publishTime>
@@ -661,7 +661,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/14/2015 10:01:50</publishTime>
     </File>
     <File Include="css/ariges-inv-web.css">
-      <publishTime>01/16/2015 11:22:40</publishTime>
+      <publishTime>01/21/2015 11:53:08</publishTime>
     </File>
     <File Include="css/fonts/Flat-UI-Icons-24.ttf">
       <publishTime>01/20/2015 18:00:51</publishTime>
@@ -742,25 +742,25 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/14/2015 16:43:29</publishTime>
     </File>
     <File Include="inventario.html">
-      <publishTime>01/20/2015 18:51:51</publishTime>
+      <publishTime>01/21/2015 12:00:02</publishTime>
     </File>
     <File Include="InventarioApi.aspx">
       <publishTime>01/19/2015 10:57:00</publishTime>
     </File>
     <File Include="js/ariges-inv-web.js">
-      <publishTime>01/16/2015 12:00:44</publishTime>
+      <publishTime>01/21/2015 11:25:09</publishTime>
     </File>
     <File Include="js/inventario.js">
-      <publishTime>01/20/2015 18:47:23</publishTime>
+      <publishTime>01/21/2015 13:14:24</publishTime>
     </File>
     <File Include="js/login.js">
-      <publishTime>01/20/2015 18:44:00</publishTime>
+      <publishTime>01/21/2015 13:12:33</publishTime>
     </File>
     <File Include="js/numeral.min.js">
       <publishTime>01/19/2015 13:09:08</publishTime>
     </File>
     <File Include="login.html">
-      <publishTime>01/20/2015 13:21:05</publishTime>
+      <publishTime>01/21/2015 13:11:04</publishTime>
     </File>
     <File Include="LoginApi.aspx">
       <publishTime>01/16/2015 11:26:37</publishTime>
@@ -769,7 +769,7 @@ editando este archivo MSBuild. Para conocer más acerca de esto, visite http://g
       <publishTime>01/16/2015 10:08:31</publishTime>
     </File>
     <File Include="PrecompiledApp.config">
-      <publishTime>01/20/2015 18:54:14</publishTime>
+      <publishTime>01/21/2015 13:15:23</publishTime>
     </File>
     <File Include="Scripts/jquery-1.8.3.js">
       <publishTime>01/14/2015 10:01:47</publishTime>

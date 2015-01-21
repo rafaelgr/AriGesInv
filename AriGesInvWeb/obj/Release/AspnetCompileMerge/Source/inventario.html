@@ -13,6 +13,7 @@
         <script src="Scripts/jquery.mobile-1.4.5.js"></script>
         <script src="Scripts/jquery.validate.js"></script>
         <script src="js/numeral.min.js"></script>
+
     </head>
     <body>
         <!-- pgInv -->
@@ -91,7 +92,7 @@
             <div data-role="header" data-theme="b">
                 <h1>Mensaje</h1>
             </div>
-            <div data-role="content" data-theme="b">
+            <div data-role="content" data-theme="b" style="text-align:center; color:red;" >
                 <p id="txtMsg"></p>
                 <div>
                     <input type="button" id="btnMsg" value="ACEPTAR"/>
@@ -101,9 +102,11 @@
         <!-- FIN pgMsg -->
         <script>
             $("#btnMsg").click(function () {
+                $('#txtMsg').css('color', 'red');
                 $.mobile.changePage("#pgInv");
             });
         </script>
+        <script src="js/ariges-inv-web.js"></script>
         <script src="js/inventario.js"></script>
     </body>
 </html>
