@@ -225,12 +225,12 @@ var InvetarioApp = {};
     app.validateFormArt = function () {
         $('#frmArt').validate({
                                   rules: {
-                cantidad: { required: true, min: 1 }
+                cantidad: { required: true, min: 0 }
             },
                                   messages: {
                 cantidad: {
                                           required: 'Introduzca una cantidad',
-                                          min: 'El valor no puede ser cero ni negativo'
+                                          min: 'El valor no puede negativo'
                                       }
             },
                                   errorPlacement: function (error, element) {
