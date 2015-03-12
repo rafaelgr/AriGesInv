@@ -309,7 +309,8 @@ namespace AriGesDb
             //                                    0         1         2         3         4         5         6          7         8         9        10
             string sql = @"INSERT INTO smoval (codartic, codalmac, fechamov, horamovi, tipomovi, detamovi, impormov, codigope, letraser, document, numlinea, cantidad)
                     VALUES ('{0}',{1},'{2:yyyy-MM-dd}','{3:yyyy-MM-dd HH:mm:ss}',{4},'{5}',{6},'{7}','{8}','{9}',{10}, {11})";
-            sql = String.Format(sql, codartic, codalmac, DateTime.Now, DateTime.Now, tipoMovi, "DFI", (diferencia * importe).ToString().Replace(',','.'), codigope, "", "LECTOR", 1, cantidad);
+            string strCantidad = cantidad.ToString().Replace(",", ".");
+            sql = String.Format(sql, codartic, codalmac, DateTime.Now, DateTime.Now, tipoMovi, "DFI", (diferencia * importe).ToString().Replace(',','.'), codigope, "", "LECTOR", 1, strCantidad);
             cmd.CommandText = sql;
             cmd.ExecuteNonQuery();
         }
@@ -320,7 +321,8 @@ namespace AriGesDb
             string sql = @"UPDATE salmac SET 
                             canstock = {0}, statusin=0, stockinv={0}, fechainv='{1:yyyy-MM-dd}', horainve='{1:yyyy-MM-dd HH:mm:ss}'
                             WHERE codartic = '{2}' AND codalmac = {3}";
-            sql = String.Format(sql, cantidad, DateTime.Now, codartic, codalmac);
+            string strCantidad = cantidad.ToString().Replace(",", ".");
+            sql = String.Format(sql, strCantidad, DateTime.Now, codartic, codalmac);
             cmd.CommandText = sql;
             cmd.ExecuteNonQuery();
         }
